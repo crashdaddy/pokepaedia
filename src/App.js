@@ -1,5 +1,6 @@
 import {React, Component} from 'react';
-import MainBoard from './Components/MainBoard/MainBoard'
+import MainBoard from './Components/MainBoard/MainBoard';
+import TypeMoves from './Components/TypeMoves/TypeMoves';
 import './App.css';
 
 class App extends Component {
@@ -8,13 +9,16 @@ class App extends Component {
     
     this.state = {
          types: [],
+         typeMoves: [],
          page: 1,
          pokemonType: 1,
+         pokemonTypeName: "normal"
      }
    }
 
   componentDidMount() {
     this.getData();
+    this.changePokemonType(1)
   }
 
   getData = () => {
@@ -29,11 +33,31 @@ class App extends Component {
     })
   }
 
+  getNewTypeData = (newType) => {
+    let url = "https://pokeapi.co/api/v2/type/" + newType;
+    fetch(url)
+    .then(res=>res.json())
+    .then(data => {
+      this.setState({
+        typeMoves: data.moves
+      })
+    })
+  }
+
   changePokemonType = (newType) => {
-    console.log(newType);
+    this.state.types.forEach(type => {
+      let idStr = type.url.split('/');
+      let pokemonTypeID = idStr[6];
+      if(newType===pokemonTypeID) {
+        this.setState({
+          pokemonTypeName: type.name
+        })
+      }
+    });
     this.setState({
       pokemonType: newType
     })
+    this.getNewTypeData(newType);
   }
 
   render() {
@@ -48,6 +72,10 @@ class App extends Component {
          <button href={typeData.url} style={{marginBottom:'5px',width:'90%'}}  onClick={() => this.changePokemonType(pokemonTypeID)}>{typeData.name}</button>
         </div>)   
       })}     
+        </div>
+        <div style={{width:'70%',border:'1px solid black',float:'left',margin:'5px',textAlign:'left'}}>
+          Pokemon Type: {this.state.pokemonTypeName}<br/> Moves: <br/> 
+          <TypeMoves typeMoves={this.state.typeMoves} pokemonTypeID={this.state.pokemonType} />
         </div>
         <div style={{width:'50%',border:'1px solid black',float:'left'}}> 
           <MainBoard pokemonTypeID={this.state.pokemonType} />

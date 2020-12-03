@@ -50,7 +50,7 @@ class MainBoard extends Component {
          let pokemonID = idStr[6];
          let imageURL = "https://pokeres.bastionbot.org/images/pokemon/"+ pokemonID + ".png";
          return( <div>
-        <img src={imageURL} style={{width:'50px',float:'left',margin:'5px'}}  onError={this.addDefaultSrc} />
+        <img src={imageURL} style={{width:'50px',float:'left',margin:'5px'}} alt="pokemon"  onError={this.addDefaultSrc} />
         </div>)   
       })}     
         </div>
