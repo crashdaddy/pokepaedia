@@ -45,7 +45,7 @@ class TypeMoves extends Component {
 
   render() {
     return (
-        <div style={{marginTop:'20px',color:'red',fontWeight:'bold'}}>
+        <div style={{marginTop:'10px',color:'red',fontSize:'x-small'}}>
        {this.props.typeMoves && this.props.typeMoves.map(pokemonMovesData  => {
    
          return( <span style={{marginLeft:'5px',color:'black'}} onClick={()=>this.changeMove(pokemonMovesData.url)}>
@@ -53,12 +53,16 @@ class TypeMoves extends Component {
         </span>)   
       })}
       <p/>
-      {this.state.moveData && this.state.moveData.map(moveDetails => {
+      {this.state.moveData &&
+      <div style={{fontSize:'large'}}>
+      
+      {this.state.moveData.map(moveDetails => {
           return(
-              <span style={{marginLeft:'5px'}} >{moveDetails.short_effect}</span>
+              <span style={{margin:'5px'}} >{moveDetails.short_effect}</span>
           )
       } )}  
-        <div style={{marginTop:'20px'}}>{this.state.flavorText}</div>   
+        {this.state.flavorText}</div>   
+      }
         </div>
   
     );

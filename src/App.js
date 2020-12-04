@@ -73,7 +73,7 @@ class App extends Component {
         </div>)   
       })}     
         </div>
-        <div style={{width:'70%',border:'1px solid black',float:'left',margin:'5px',marginBottom:'10px',textAlign:'left'}}>
+        <div style={{width:'50%',border:'1px solid black',float:'left',margin:'5px',marginBottom:'10px',textAlign:'left'}}>
           Pokemon Type: {this.state.pokemonTypeName}<br/> Moves: <br/> 
           <TypeMoves typeMoves={this.state.typeMoves} pokemonTypeID={this.state.pokemonType} />
         </div>
