@@ -1,6 +1,7 @@
 import {React, Component} from 'react';
 import MainBoard from './Components/MainBoard/MainBoard';
 import TypeMoves from './Components/TypeMoves/TypeMoves';
+import DetailsBoard from './Components/DetailsBoard/DetailsBoard'
 import './App.css';
 
 class App extends Component {
@@ -12,7 +13,8 @@ class App extends Component {
          typeMoves: [],
          page: 1,
          pokemonType: 1,
-         pokemonTypeName: "normal"
+         pokemonTypeName: "normal",
+         selectedPokemon: ''
      }
    }
 
@@ -60,6 +62,13 @@ class App extends Component {
     this.getNewTypeData(newType);
   }
 
+  selectPokemon = (newPokemon) => {
+    console.log(newPokemon)
+    this.setState({
+      selectedPokemon: newPokemon
+    })
+  }
+
   render() {
     return (
       <div>
@@ -74,11 +83,18 @@ class App extends Component {
       })}     
         </div>
         <div style={{width:'50%',border:'1px solid black',float:'left',margin:'5px',marginBottom:'10px',textAlign:'left'}}>
+        <div>
           Pokemon Type: {this.state.pokemonTypeName}<br/> Moves: <br/> 
           <TypeMoves typeMoves={this.state.typeMoves} pokemonTypeID={this.state.pokemonType} />
         </div>
-        <div style={{width:'50%',border:'1px solid black',float:'left'}}> 
-          <MainBoard pokemonTypeID={this.state.pokemonType} />
+        <div> 
+          <MainBoard pokemonTypeID={this.state.pokemonType} selectPokemon = {this.selectPokemon} />
+        </div>
+        </div>
+        <div style={{width:'30%',border:'1px solid black',float:'left'}}> 
+          {this.state.selectedPokemon && 
+          <DetailsBoard selectedPokemon={this.state.selectedPokemon} style={{width:'50%',border:'1px solid black',float:'left',margin:'5px',marginBottom:'10px',textAlign:'left'}} />
+          }
         </div>
       </div>
     );

@@ -42,6 +42,11 @@ class MainBoard extends Component {
     ev.target.src = 'noImg.png'
   }
 
+  pokemonClicked = (newPokemon) => {
+    console.log("himom"+ newPokemon);
+    this.props.selectPokemon(newPokemon);
+  }
+
   render() {
     return (
         <div>
@@ -50,7 +55,7 @@ class MainBoard extends Component {
          let pokemonID = idStr[6];
          let imageURL = "https://pokeres.bastionbot.org/images/pokemon/"+ pokemonID + ".png";
          return( <div>
-        <img src={imageURL} style={{width:'50px',float:'left',margin:'5px'}} alt="pokemon"  onError={this.addDefaultSrc} />
+        <img onClick={() => {this.pokemonClicked(pokemonID)}} src={imageURL} style={{width:'50px',float:'left',margin:'5px'}} alt="pokemon"  onError={this.addDefaultSrc} />
         </div>)   
       })}     
         </div>
