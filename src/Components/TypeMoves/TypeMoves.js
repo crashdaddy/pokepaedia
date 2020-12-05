@@ -8,7 +8,8 @@ class TypeMoves extends Component {
         typeMoves: [],
         pokemonTypeID: this.props.pokemonTypeID || 1,
         moveData: [],
-        flavorText: ''
+        flavorText: '',
+        selectedMove: ''
      }
    }
 
@@ -38,7 +39,8 @@ class TypeMoves extends Component {
       }
       this.setState({
         moveData: data.effect_entries,
-        flavorText: flavorText
+        flavorText: flavorText,
+        selectedMove: data.name
       })
     })
   }
@@ -55,7 +57,7 @@ class TypeMoves extends Component {
       <p/>
       {this.state.moveData &&
       <div style={{fontSize:'large'}}>
-      
+      {this.state.selectedMove}:
       {this.state.moveData.map(moveDetails => {
           return(
               <span style={{margin:'5px'}} >{moveDetails.short_effect}</span>

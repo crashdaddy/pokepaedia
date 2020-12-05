@@ -48,6 +48,9 @@ class MainBoard extends Component {
   }
 
   render() {
+    const imgStyle = {
+     border: "1px solid black", 
+    }
     return (
         <div>
        {this.state.pokemon && this.state.pokemon.map(pokemonData  => {
@@ -55,7 +58,7 @@ class MainBoard extends Component {
          let pokemonID = idStr[6];
          let imageURL = "https://pokeres.bastionbot.org/images/pokemon/"+ pokemonID + ".png";
          return( <div>
-        <img onClick={() => {this.pokemonClicked(pokemonID)}} src={imageURL} style={{width:'50px',float:'left',margin:'5px'}} alt="pokemon"  onError={this.addDefaultSrc} />
+        <img onClick={() => {this.pokemonClicked(pokemonID)}} src={imageURL} style={{width:'50px',float:'left',margin:'7px'}} alt="pokemon"  onError={this.addDefaultSrc} />
         </div>)   
       })}     
         </div>

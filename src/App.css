@@ -36,3 +36,11 @@
     transform: rotate(360deg);
   }
 }
+
+img { 
+  border: 1px solid white; 
+} 
+img:hover { 
+  border: 1px solid black; 
+  background-color: salmon;
+} 
