@@ -9,6 +9,7 @@ class DetailsBoard extends Component {
         pokemonMoves: [],
         pokemonStats: [],
         pokemonSprites: null,
+        pokemonName: '',
         selectedPokemon: this.props.selectedPokemon
      }
    }
@@ -39,7 +40,8 @@ class DetailsBoard extends Component {
         pokemonAbilites: data.abilities,
         pokemonMoves: data.moves,
         pokemonStats: data.stats,
-        pokemonSprites: data.sprites
+        pokemonSprites: data.sprites,
+        pokemonName: data.name
       })
     })
   }
@@ -62,11 +64,7 @@ class DetailsBoard extends Component {
        <div>
            <img src={imageURL} width="100%" alt=""/>
 
-           {this.state.pokemonMoves && this.state.pokemonMoves.map(move=> 
-             <div>
-               {move.name}
-             </div>
-           )}
+           <span style={{fontSize:'24px',fontWeight:'bold'}}>{this.state.pokemonName}</span><br/>
 
            {this.state.pokemonStats && this.state.pokemonStats.map(stat=> 
              <div>
@@ -74,8 +72,12 @@ class DetailsBoard extends Component {
              </div>
            )}
 
-
-
+<div style={{fontSize:'small',margin:'5px'}}>
+           {this.state.pokemonMoves && this.state.pokemonMoves.map(move=> 
+             <span style={{margin:'5px'}}>{move.move.name}</span>
+             
+           )}
+</div>
        </div>
 
          }
