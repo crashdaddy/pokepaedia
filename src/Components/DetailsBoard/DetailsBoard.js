@@ -56,14 +56,15 @@ class DetailsBoard extends Component {
         <div>
         {this.state.pokemonSprites &&
         Object.entries(this.state.pokemonSprites).map(([key, val]) => 
-      <img src={val} alt=""/>
+      <img src={val} alt="" />
        )
         }  
           
        {this.props.selectedPokemon && 
        <div>
-           <img src={imageURL} width="100%" alt=""/>
-
+          <div style={{backgroundImage:'url("bg.jpg")'}}>
+           <img src={imageURL} width="100%" alt="" style={{border:'none'}} />
+          </div>
            <span style={{fontSize:'24px',fontWeight:'bold'}}>{this.state.pokemonName}</span><br/>
 
            {this.state.pokemonStats && this.state.pokemonStats.map(stat=> 
