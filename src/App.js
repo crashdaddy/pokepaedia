@@ -72,26 +72,41 @@ class App extends Component {
   render() {
     return (
       <div>
-        <div style={{float:'left',width:'10%'}}>
-        <img src="banner.png" alt="banner" style={{width:'100%'}} />
-       {this.state.types.map(typeData  => {
+        <div style={{float:'left',width:'80%'}}>
+        <img src="banner.png" alt="banner" style={{width:'20%',float:'left'}} />
+
+        <select style={{borderRadius:'15px',width:'70%',fontSize:'32px',marginTop:'20px'}} onChange={(val) => this.changePokemonType(val.target.value)}>
+        {this.state.types.map(typeData  => {
+         let idStr = typeData.url.split('/');
+         let pokemonTypeID = idStr[6];
+         return( 
+         <option value={pokemonTypeID}>{typeData.name}</option>
+        )   
+      })}   
+        </select>
+
+       {/* {this.state.types.map(typeData  => {
          let idStr = typeData.url.split('/');
          let pokemonTypeID = idStr[6];
          return( <div>
          <button href={typeData.url} style={{marginBottom:'5px',width:'90%'}}  onClick={() => this.changePokemonType(pokemonTypeID)}>{typeData.name}</button>
         </div>)   
-      })}     
+      })}      */}
         </div>
-        <div style={{width:'50%',border:'1px solid black',float:'left',margin:'5px',marginBottom:'10px',textAlign:'left'}}>
+        <div style={{padding:'5px',width:'65%',border:'1px solid black',borderRadius:'15px',float:'left',margin:'5px',marginBottom:'10px',textAlign:'left'}}>
         <div>
-          Pokemon Type: {this.state.pokemonTypeName}<br/> Moves: <br/> 
+          <div style={{fontSize:'x-large',fontWeight:'bold'}}>Pokemon Type: {this.state.pokemonTypeName}<br/> Moves: 
+          <span style={{fontSize:'small',marginLeft:'5px',fontWeight:'normal'}}>
+            <em>(These are the moves that all pokemon of this type can execute)</em>
+          </span>
+          <br/></div>
           <TypeMoves typeMoves={this.state.typeMoves} pokemonTypeID={this.state.pokemonType} />
         </div>
         <div> 
           <MainBoard pokemonTypeID={this.state.pokemonType} selectPokemon = {this.selectPokemon} />
         </div>
         </div>
-        <div style={{width:'30%',border:'1px solid black',float:'left'}}> 
+        <div style={{borderRadius:'15px',width:'30%',border:'1px solid black',float:'left',margin:'5px'}}> 
           {this.state.selectedPokemon && 
           <DetailsBoard selectedPokemon={this.state.selectedPokemon} style={{width:'50%',border:'1px solid black',float:'left',margin:'5px',marginBottom:'10px',textAlign:'left'}} />
           }
