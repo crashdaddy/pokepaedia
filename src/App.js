@@ -72,7 +72,20 @@ class App extends Component {
   render() {
     return (
       <div>
-        <div style={{ float: "left", width: "65%" }}>
+        
+        <div
+          style={{
+            padding: "5px",
+            width: "65%",
+            // border: "1px solid black",
+            borderRadius: "15px",
+            float: "left",
+            margin: "5px",
+            marginBottom: "10px",
+            textAlign: "left",
+          }}
+        >
+          <div style={{ float: "left", width: "100%" }}>
           <img
             src="banner.png"
             alt="banner"
@@ -104,18 +117,6 @@ class App extends Component {
         </div>)   
       })}      */}
         </div>
-        <div
-          style={{
-            padding: "5px",
-            width: "65%",
-            // border: "1px solid black",
-            borderRadius: "15px",
-            float: "left",
-            margin: "5px",
-            marginBottom: "10px",
-            textAlign: "left",
-          }}
-        >
           <div>
             <div style={{ fontSize: "x-large", fontWeight: "bold" }}>
               Pokemon Type: {this.state.pokemonTypeName}

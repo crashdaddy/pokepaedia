@@ -55,22 +55,11 @@ class DetailsBoard extends Component {
       ".png";
     return (
       <div>
-        {this.state.pokemonSprites &&
-          Object.entries(this.state.pokemonSprites).map(([key, val]) => (
-            <img src={val} alt="" />
-          ))}
+
 
         {this.props.selectedPokemon && (
           <div>
-            <div style={{ backgroundImage: 'url("bg.jpg")',borderRadius:'15px' }}>
-              <img
-                src={imageURL}
-                width="100%"
-                alt=""
-                style={{ border: "none" }}
-              />
-            </div>
-            <span style={{ fontSize: "24px", fontWeight: "bold" }}>
+                        <span style={{color:"blue", fontSize: "32px", fontWeight: "bold",width:"100%",textAlign:"center" }}>
               {this.state.pokemonName}
             </span>
             <br />
@@ -94,6 +83,19 @@ class DetailsBoard extends Component {
                   </span>
                 </div>
               ))}
+            <div style={{ backgroundImage: 'url("bg.jpg")',borderRadius:'15px',marginTop:'100px' }}>
+              <img
+                src={imageURL}
+                width="100%"
+                alt=""
+                style={{ border: "none" }}
+              />
+            </div>
+            {this.state.pokemonSprites &&
+          Object.entries(this.state.pokemonSprites).map(([key, val]) => (
+            <img src={val} alt="" />
+          ))}
+
 
             <div
               style={{
