@@ -68,12 +68,17 @@ class DetailsBoard extends Component {
            <span style={{fontSize:'24px',fontWeight:'bold'}}>{this.state.pokemonName}</span><br/>
 
            {this.state.pokemonStats && this.state.pokemonStats.map(stat=> 
-             <div>
-               {stat.base_stat} {stat.stat.name}
+             <div style={{float:'left',width:'15%',textAlign:'center',marginBottom:'20px'}}>
+               <span style={{fontSize:'24px',fontWeight:'bold'}}>{stat.base_stat}</span><br/><span style={{fontSize:'small',fontWeight:'normal'}}>{stat.stat.name}</span>
              </div>
            )}
 
-<div style={{fontSize:'small',margin:'5px'}}>
+<div style={{fontSize:'x-large',fontWeight:'bold',clear:'both',float:'left'}}>Moves: 
+          <span style={{fontSize:'small',marginLeft:'5px',fontWeight:'normal'}}>
+            <em>(These are the moves specific to this pokemon)</em>
+          </span>
+          <br/></div>
+<div style={{fontSize:'small',margin:'5px',wordWrap: 'break-word',float:'left'}}>
            {this.state.pokemonMoves && this.state.pokemonMoves.map(move=> 
              <span style={{margin:'5px'}}>{move.move.name}</span>
              

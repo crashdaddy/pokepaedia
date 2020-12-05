@@ -72,10 +72,10 @@ class App extends Component {
   render() {
     return (
       <div>
-        <div style={{float:'left',width:'80%'}}>
+        <div style={{float:'left',width:'65%'}}>
         <img src="banner.png" alt="banner" style={{width:'20%',float:'left'}} />
 
-        <select style={{borderRadius:'15px',width:'70%',fontSize:'32px',marginTop:'20px'}} onChange={(val) => this.changePokemonType(val.target.value)}>
+        <select style={{textAlign:'right',borderRadius:'15px',width:'70%',fontSize:'32px',marginTop:'20px'}} onChange={(val) => this.changePokemonType(val.target.value)}>
         {this.state.types.map(typeData  => {
          let idStr = typeData.url.split('/');
          let pokemonTypeID = idStr[6];
