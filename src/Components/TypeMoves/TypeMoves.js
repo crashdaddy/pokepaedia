@@ -35,17 +35,17 @@ class TypeMoves extends Component {
         {this.props.typeMoves &&
           this.props.typeMoves.map((pokemonMovesData) => {
             return (
-              <span
-                style={{ marginLeft: "5px", color: "black" }}
+              <div
+                style={{float:'left', marginLeft: "5px", color: "black" ,textTransform:'capitalize'}}
                 onClick={() => this.changeMove(pokemonMovesData.url)}
               >
                 {pokemonMovesData.name}
-              </span>
+              </div>
             );
           })}
         <p />
         {this.state.moveData && (
-          <div style={{ fontSize: "large" }}>
+          <div style={{ fontSize: "large", float:'left',width:'100%' }}>
             {this.state.selectedMove}:
             {this.state.moveData.map((moveDetails) => {
               return (

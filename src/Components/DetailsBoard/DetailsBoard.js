@@ -55,35 +55,49 @@ class DetailsBoard extends Component {
       ".png";
     return (
       <div>
-
-
         {this.props.selectedPokemon && (
           <div>
-                        <span style={{color:"blue", fontSize: "32px", fontWeight: "bold",width:"100%",textAlign:"center" }}>
+            <span
+              style={{
+                color: "blue",
+                fontSize: "32px",
+                fontWeight: "bold",
+                width: "100%",
+                textAlign: "center",
+              }}
+            >
               {this.state.pokemonName}
             </span>
             <br />
-
+            <div  style={{
+                    textAlign: "left",
+                    display: "flex",
+                    flexDirection: "row",
+                    alignContent: "center",
+                    justifyContent: "right",
+                    alignItems: "stretch",
+                    width: "100%",
+                  }}>
             {this.state.pokemonStats &&
               this.state.pokemonStats.map((stat) => (
-                <div
-                  style={{
-                    float: "left",
-                    width: "15%",
-                    textAlign: "center",
-                    marginBottom: "20px",
-                  }}
-                >
-                  <span style={{ fontSize: "24px", fontWeight: "bold" }}>
-                    {stat.base_stat}
-                  </span>
-                  <br />
-                  <span style={{ fontSize: "small", fontWeight: "normal" }}>
-                    {stat.stat.name}
-                  </span>
-                </div>
+                   <div style={{width:"16%"}}>
+                    <span style={{ fontSize: "24px", fontWeight: "bold" }}>
+                      {stat.base_stat}
+                    </span>
+                    <br />
+                    <span style={{ fontSize: "small", fontWeight: "normal" }}>
+                      {stat.stat.name}
+                    </span>
+                  </div>
               ))}
-            <div style={{ backgroundImage: 'url("bg.jpg")',borderRadius:'15px',marginTop:'100px' }}>
+              </div>
+            <div
+              style={{
+                backgroundImage: 'url("bg.jpg")',
+                borderRadius: "15px",
+                marginTop: "10px",
+              }}
+            >
               <img
                 src={imageURL}
                 width="100%"
@@ -92,10 +106,9 @@ class DetailsBoard extends Component {
               />
             </div>
             {this.state.pokemonSprites &&
-          Object.entries(this.state.pokemonSprites).map(([key, val]) => (
-            <img src={val} alt="" />
-          ))}
-
+              Object.entries(this.state.pokemonSprites).map(([key, val]) => (
+                <img src={val} alt="" />
+              ))}
 
             <div
               style={{
@@ -128,7 +141,15 @@ class DetailsBoard extends Component {
             >
               {this.state.pokemonMoves &&
                 this.state.pokemonMoves.map((move) => (
-                  <span style={{ margin: "5px" }}>{move.move.name}</span>
+                  <div
+                    style={{
+                      margin: "5px",
+                      textTransform: "capitalize",
+                      float: "left",
+                    }}
+                  >
+                    {move.move.name}
+                  </div>
                 ))}
             </div>
           </div>
