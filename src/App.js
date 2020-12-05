@@ -91,21 +91,20 @@ class App extends Component {
             alt="banner"
             style={{ width: "20%", float: "left" }}
           />
-
           <select
             style={{
               textAlign: "right",
               borderRadius: "15px",
-              width: "70%",
+              width: "78%",
               fontSize: "32px",
-              marginTop: "20px",
+              marginTop: "10px",
             }}
             onChange={(val) => this.changePokemonType(val.target.value)}
           >
             {this.state.types.map((typeData) => {
               let idStr = typeData.url.split("/");
               let pokemonTypeID = idStr[6];
-              return <option value={pokemonTypeID}>{typeData.name}</option>;
+              return <option value={pokemonTypeID}>Pokemon Type:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {typeData.name}</option>;
             })}
           </select>
 
@@ -119,8 +118,8 @@ class App extends Component {
         </div>
           <div>
             <div style={{ fontSize: "x-large", fontWeight: "bold" }}>
-              Pokemon Type: {this.state.pokemonTypeName}
-              <br /> Moves:
+              
+              &nbsp;Moves:
               <span
                 style={{
                   fontSize: "small",

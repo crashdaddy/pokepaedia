@@ -36,7 +36,7 @@ class TypeMoves extends Component {
           this.props.typeMoves.map((pokemonMovesData) => {
             return (
               <div
-                style={{float:'left', marginLeft: "5px", color: "black" ,textTransform:'capitalize'}}
+                style={{float:'left', marginLeft: "10px", color: "black" ,textTransform:'capitalize'}}
                 onClick={() => this.changeMove(pokemonMovesData.url)}
               >
                 {pokemonMovesData.name}
@@ -45,7 +45,7 @@ class TypeMoves extends Component {
           })}
         <p />
         {this.state.moveData && (
-          <div style={{ fontSize: "large", float:'left',width:'100%' }}>
+          <div style={{ fontSize: "large", float:'left',width:'100%',margin:'10px' }}>
             {this.state.selectedMove}:
             {this.state.moveData.map((moveDetails) => {
               return (

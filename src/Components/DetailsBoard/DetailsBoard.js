@@ -64,6 +64,7 @@ class DetailsBoard extends Component {
                 fontWeight: "bold",
                 width: "100%",
                 textAlign: "center",
+                textTransform:"capitalize"
               }}
             >
               {this.state.pokemonName}
