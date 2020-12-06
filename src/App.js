@@ -169,6 +169,9 @@ class App extends Component {
             />
           )}
         </div>
+        <div style={{width:'100%',clear:'both'}}>
+        <em>Data provided by Pokeapi.com Images courtesy of https://pokeres.bastionbot.org/</em>
+        </div>
       </div>
     );
   }
