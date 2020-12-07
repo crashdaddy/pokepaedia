@@ -45,13 +45,13 @@ class TypeMoves extends Component {
           })}
         <p />
         {this.state.moveData && (
-          <div style={{ fontSize: "large", float:'left',width:'100%',margin:'10px' }}>
+          <div style={{ fontSize: "large", float:'left',margin:'20px',display:'inline' }}>
             {this.state.selectedMove}:
             {this.state.moveData.map((moveDetails) => {
               return (
-                <span style={{ margin: "5px" }}>
+                <div style={{ margin: "5px" }}>
                   {moveDetails.short_effect}
-                </span>
+                </div>
               );
             })}
             {this.state.flavorText}

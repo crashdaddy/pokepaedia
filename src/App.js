@@ -76,7 +76,7 @@ class App extends Component {
         <div
           style={{
             padding: "5px",
-            width: "65%",
+            width: "100%",
             // border: "1px solid black",
             borderRadius: "15px",
             float: "left",
@@ -116,6 +116,28 @@ class App extends Component {
         </div>)   
       })}      */}
         </div>
+        <div
+          style={{
+            borderRadius: "15px",
+            width: "30%",
+            // border: "1px solid black",
+            float: "left",
+            margin: "5px",
+          }}>
+        {this.state.selectedPokemon && (
+            <DetailsBoard
+              selectedPokemon={this.state.selectedPokemon}
+              style={{
+                width: "50%",
+                // border: "1px solid black",
+                float: "left",
+                margin: "5px",
+                marginBottom: "10px",
+                textAlign: "left",
+              }}
+            />
+          )}
+          </div>
           <div>
             <div style={{ fontSize: "x-large", fontWeight: "bold" }}>
               
@@ -134,41 +156,22 @@ class App extends Component {
               </span>
               <br />
             </div>
+            <div>
             <TypeMoves
               typeMoves={this.state.typeMoves}
               pokemonTypeID={this.state.pokemonType}
             />
+            </div>
           </div>
-          <div>
+          <div style={{display:'block'}}>
             <MainBoard
               pokemonTypeID={this.state.pokemonType}
               selectPokemon={this.selectPokemon}
             />
           </div>
         </div>
-        <div
-          style={{
-            borderRadius: "15px",
-            width: "30%",
-            // border: "1px solid black",
-            float: "left",
-            margin: "5px",
-          }}
-        >
-          {this.state.selectedPokemon && (
-            <DetailsBoard
-              selectedPokemon={this.state.selectedPokemon}
-              style={{
-                width: "50%",
-                // border: "1px solid black",
-                float: "left",
-                margin: "5px",
-                marginBottom: "10px",
-                textAlign: "left",
-              }}
-            />
-          )}
-        </div>
+
+        
         <div style={{width:'100%',clear:'both'}}>
         <em>Data provided by Pokeapi.com Images courtesy of https://pokeres.bastionbot.org/</em>
         </div>
